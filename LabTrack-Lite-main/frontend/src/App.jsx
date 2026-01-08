@@ -263,7 +263,7 @@ function App() {
       {/* ================= CHATBOT ================= */}
       <h2>Chatbot</h2>
       <input
-        placeholder="Ask something like: open tickets"
+        placeholder="Type your question here"
         value={question}
         onChange={e => setQuestion(e.target.value)}
       />
