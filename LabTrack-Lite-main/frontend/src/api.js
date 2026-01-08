@@ -1,4 +1,4 @@
-const API_BASE = "http://localhost:5284";
+const API_BASE = "/api";
 
 export async function getAssets(role) {
   const res = await fetch(`${API_BASE}/assets`, {
@@ -6,6 +6,11 @@ export async function getAssets(role) {
       "X-User-Role": role
     }
   });
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch assets");
+  }
+
   return res.json();
 }
 
@@ -15,6 +20,11 @@ export async function getTickets(role) {
       "X-User-Role": role
     }
   });
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch tickets");
+  }
+
   return res.json();
 }
 
@@ -34,3 +44,4 @@ export async function createTicket(ticket, role) {
 
   return res.json();
 }
+
